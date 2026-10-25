@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phrasal Verbs with "on" · Interactive Practice</title>
+<style>
+  :root {
+    --bg-1: #0f172a;
+    --bg-2: #1e1b4b;
+    --bg-3: #312e81;
+    --card: #ffffff;
+    --ink: #0f172a;
+    --ink-soft: #475569;
+    --ink-mute: #94a3b8;
+    --line: #e2e8f0;
+    --brand: #6366f1;
+    --brand-2: #8b5cf6;
+    --brand-3: #ec4899;
+    --ok: #10b981;
+    --ok-soft: #d1fae5;
+    --bad: #ef4444;
+    --bad-soft: #fee2e2;
+    --warn: #f59e0b;
+    --warn-soft: #fef3c7;
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.06), 0 1px 3px rgba(15,23,42,.10);
+    --shadow-md: 0 4px 6px -1px rgba(15,23,42,.10), 0 2px 4px -2px rgba(15,23,42,.06);
+    --shadow-lg: 0 20px 25px -5px rgba(15,23,42,.15), 0 8px 10px -6px rgba(15,23,42,.06);
+    --shadow-xl: 0 25px 50px -12px rgba(15,23,42,.25);
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 20px;
+    --r-xl: 28px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PT Sans", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(139,92,246,.35), transparent 60%),
+      radial-gradient(1000px 500px at 110% 10%, rgba(236,72,153,.30), transparent 60%),
+      linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 50%, var(--bg-3) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ---------- Layout ---------- */
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  /* ---------- Header ---------- */
+  header.app {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  header.app .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.20);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    margin-bottom: 14px;
+  }
+  header.app h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 0%, #c7d2fe 50%, #fbcfe8 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header.app p.sub {
+    margin-top: 10px;
+    color: rgba(255,255,255,.78);
+    font-size: 15px;
+    max-width: 620px;
+    margin-left: auto; margin-right: auto;
+  }
+  .pv-list { display: inline-flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+  .pv-list span {
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff;
+    padding: 4px 12px; border-radius: 999px;
+    font-size: 13px; font-weight: 600;
+  }
+
+  /* ---------- Progress bar ---------- */
+  .progress-shell {
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+    margin: 18px auto 0;
+    max-width: 520px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #34d399, #22d3ee, #818cf8);
+    width: 0%;
+    transition: width .6s cubic-bezier(.16,1,.3,1);
+    border-radius: 999px;
+  }
+
+  /* ---------- Tabs ---------- */
+  nav.tabs {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.18);
+    padding: 6px;
+    border-radius: 999px;
+    margin: 22px auto 24px;
+    max-width: 720px;
+    backdrop-filter: blur(10px);
+  }
+  nav.tabs button {
+    flex: 1 1 auto;
+    min-width: 110px;
+    border: 0;
+    background: transparent;
+    color: rgba(255,255,255,.75);
+    font-size: 14px; font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .25s ease;
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  nav.tabs button:hover { color: #fff; background: rgba(255,255,255,.08); }
+  nav.tabs button.active {
+    background: #fff;
+    color: var(--brand);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* ---------- Cards / Panels ---------- */
+  .panel {
+    background: var(--card);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-xl);
+    padding: 26px;
+    animation: fadeUp .5s cubic-bezier(.16,1,.3,1) both;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .panel h2 {
+    font-size: 22px; font-weight: 800; letter-spacing: -0.01em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .panel h2 .num {
+    width: 32px; height: 32px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-3));
+    color: #fff; font-size: 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .panel .lead {
+    color: var(--ink-soft);
+    margin-top: 6px; margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  .hidden { display: none !important; }
+
+  /* ---------- Flashcards (Learn) ---------- */
+  .flash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .flash {
+    perspective: 1200px;
+    height: 200px;
+    cursor: pointer;
+  }
+  .flash-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform .7s cubic-bezier(.16,1,.3,1);
+    transform-style: preserve-3d;
+  }
+  .flash.flipped .flash-inner { transform: rotateY(180deg); }
+  .flash-face {
+    position: absolute; inset: 0;
+    border-radius: var(--r-lg);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 18px; text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+  .flash-front {
+    background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 50%, #fdf2f8 100%);
+    color: var(--ink);
+    border: 1px solid #e0e7ff;
+  }
+  .flash-back {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+    color: #fff;
+    transform: rotateY(180deg);
+  }
+  .flash-front .icon { font-size: 36px; margin-bottom: 8px; }
+  .flash-front .verb { font-size: 22px; font-weight: 800; letter-spacing: -0.01em; }
+  .flash-front .hint { font-size: 11px; color: var(--ink-mute); margin-top: 6px; letter-spacing: .1em; text-transform: uppercase; }
+  .flash-back .meaning { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .flash-back .ru { font-size: 13px; opacity: .9; margin-bottom: 10px; }
+  .flash-back .ex { font-size: 12.5px; opacity: .95; font-style: italic; line-height: 1.4; }
+  .flash-back .ex-ru { font-size: 11.5px; opacity: .8; margin-top: 4px; }
+
+  .flash.learned::after {
+    content: "✓ learned";
+    position: absolute;
+    top: 8px; right: 8px;
+    background: var(--ok); color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 8px; border-radius: 999px;
+    z-index: 2;
+  }
+
+  .learn-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #f8fafc;
+    border: 1px solid var(--line);
+    padding: 12px 16px;
+    border-radius: var(--r-md);
+    margin-bottom: 16px;
+    font-size: 13px; color: var(--ink-soft);
+  }
+  .learn-bar strong { color: var(--ink); font-weight: 700; }
+  .btn {
+    border: 0; cursor: pointer;
+    font-family: inherit; font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: all .2s ease;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-3)); color: #fff; box-shadow: var(--shadow-md); }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+  .btn-ghost { background: #f1f5f9; color: var(--ink-soft); }
+  .btn-ghost:hover { background: #e2e8f0; color: var(--ink); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+  /* ---------- Quiz ---------- */
+  .quiz-stage { min-height: 320px; display: flex; flex-direction: column; }
+  .quiz-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    color: var(--ink-soft); font-size: 13px; margin-bottom: 12px;
+  }
+  .quiz-meta .score { font-weight: 700; color: var(--brand); }
+  .quiz-q {
+    background: #f8fafc; border: 1px solid var(--line);
+    padding: 20px 22px; border-radius: var(--r-md);
+    font-size: 17px; line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .quiz-q .blank {
+    display: inline-block;
+    min-width: 110px;
+    border-bottom: 3px solid var(--brand);
+    color: var(--brand);
+    font-weight: 800;
+    padding: 0 8px;
+    text-align: center;
+  }
+  .quiz-q .blank.filled { color: var(--ink); border-color: var(--ink-mute); }
+  .quiz-q .ru-hint { display: block; font-size: 13px; color: var(--ink-mute); margin-top: 8px; }
+  .quiz-opts { display: grid; gap: 10px; }
+  .quiz-opt {
+    text-align: left;
+    background: #fff; border: 2px solid var(--line);
+    padding: 14px 16px; border-radius: var(--r-md);
+    cursor: pointer; transition: all .2s ease;
+    font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .quiz-opt .key {
+    width: 26px; height: 26px; border-radius: 8px;
+    background: #f1f5f9; color: var(--ink-soft);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800;
+    flex-shrink: 0;
+  }
+  .quiz-opt:hover:not(:disabled) { border-color: var(--brand); background: #eef2ff; transform: translateX(2px); }
+  .quiz-opt:hover:not(:disabled) .key { background: var(--brand); color: #fff; }
+  .quiz-opt.correct { border-color: var(--ok); background: var(--ok-soft); color: #065f46; }
+  .quiz-opt.correct .key { background: var(--ok); color: #fff; }
+  .quiz-opt.wrong { border-color: var(--bad); background: var(--bad-soft); color: #991b1b; }
+  .quiz-opt.wrong .key { background: var(--bad); color: #fff; }
+  .quiz-opt:disabled { cursor: default; opacity: .85; }
+  .quiz-foot { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; }
+
+  /* Result screen */
+  .result-card { text-align: center; padding: 20px 0; }
+  .result-card .ring {
+    width: 130px; height: 130px; border-radius: 50%;
+    margin: 0 auto 16px;
+    background:
+      conic-gradient(var(--ok) calc(var(--p,0) * 1%), #e2e8f0 0);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .result-card .ring::before {
+    content: ""; position: absolute; inset: 12px;
+    background: #fff; border-radius: 50%;
+  }
+  .result-card .ring span {
+    position: relative; z-index: 1;
+    font-size: 30px; font-weight: 800; color: var(--ink);
+  }
+  .result-card h3 { font-size: 22px; margin-bottom: 6px; }
+  .result-card p { color: var(--ink-soft); margin-bottom: 18px; }
+
+  /* ---------- Match game ---------- */
+  .match-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 720px) { .match-board { grid-template-columns: 1fr 1fr; } }
+  .match-col h4 {
+    font-size: 13px; color: var(--ink-mute);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 10px; text-align: center;
+  }
+  .match-list { display: flex; flex-direction: column; gap: 10px; }
+  .match-item {
+    background: #fff; border: 2px solid var(--line);
+    padding: 14px 16px; border-radius: var(--r-md);
+    cursor: pointer; transition: all .2s ease;
+    font-size: 15px; font-weight: 600;
+    text-align: center;
+  }
+  .match-item:hover:not(.matched):not(.selected) { border-color: var(--brand); background: #eef2ff; }
+  .match-item.selected { border-color: var(--brand); background: #eef2ff; box-shadow: 0 0 0 4px rgba(99,102,241,.15); }
+  .match-item.matched {
+    background: var(--ok-soft); border-color: var(--ok); color: #065f46;
+    cursor: default; opacity: .8;
+    text-decoration: line-through;
+  }
+  .match-item.shake { animation: shake .4s; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20%,60% { transform: translateX(-6px); }
+    40%,80% { transform: translateX(6px); }
+  }
+  .match-stats {
+    display: flex; gap: 14px; justify-content: center;
+    margin-bottom: 18px; font-size: 13px; color: var(--ink-soft);
+  }
+  .match-stats b { color: var(--ink); font-weight: 700; }
+
+  /* ---------- Memory game ---------- */
+  .mem-stats {
+    display: flex; gap: 14px; justify-content: center;
+    margin-bottom: 16px; font-size: 13px; color: var(--ink-soft);
+  }
+  .mem-stats b { color: var(--ink); font-weight: 700; }
+  .mem-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 540px) { .mem-grid { grid-template-columns: repeat(3, 1fr); } }
+  .mem-card {
+    aspect-ratio: 3/4;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .mem-inner {
+    position: relative; width: 100%; height: 100%;
+    transition: transform .55s cubic-bezier(.16,1,.3,1);
+    transform-style: preserve-3d;
+  }
+  .mem-card.flipped .mem-inner, .mem-card.matched .mem-inner { transform: rotateY(180deg); }
+  .mem-face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    border-radius: var(--r-md);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 10px;
+    box-shadow: var(--shadow-sm);
+    font-weight: 700;
+  }
+  .mem-back {
+    background: linear-gradient(135deg, #4f46e5, #db2777);
+    color: #fff; font-size: 28px;
+  }
+  .mem-front {
+    background: #fff; color: var(--ink);
+    border: 2px solid var(--line);
+    transform: rotateY(180deg);
+    font-size: 13px;
+  }
+  .mem-card.matched .mem-front {
+    background: var(--ok-soft); border-color: var(--ok); color: #065f46;
+  }
+  .mem-card.matched { animation: pop .5s; }
+  @keyframes pop { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+  /* ---------- Test (typing) ---------- */
+  .test-q {
+    background: #f8fafc; border: 1px solid var(--line);
+    padding: 18px 20px; border-radius: var(--r-md);
+    font-size: 17px; line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .test-q .blank-line {
+    display: inline-block;
+    min-width: 130px;
+    border-bottom: 3px solid var(--brand);
+    margin: 0 4px;
+    color: var(--brand);
+    font-weight: 800;
+  }
+  .test-q .ru-hint { display: block; font-size: 13px; color: var(--ink-mute); margin-top: 8px; }
+  .test-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--line);
+    border-radius: var(--r-md);
+    font-size: 16px;
+    font-family: inherit;
+    transition: all .2s ease;
+    background: #fff;
+  }
+  .test-input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 4px rgba(99,102,241,.15); }
+  .test-input.ok { border-color: var(--ok); background: var(--ok-soft); color: #065f46; }
+  .test-input.bad { border-color: var(--bad); background: var(--bad-soft); color: #991b1b; }
+  .test-feedback {
+    margin-top: 10px; min-height: 24px;
+    font-size: 14px; font-weight: 600;
+  }
+  .test-feedback.ok { color: var(--ok); }
+  .test-feedback.bad { color: var(--bad); }
+  .test-feedback .reveal { color: var(--ink-soft); font-weight: 500; }
+  .test-foot { margin-top: 18px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+
+  /* ---------- Confetti ---------- */
+  #confetti {
+    position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(15,23,42,.95); color: #fff;
+    padding: 12px 22px; border-radius: 999px;
+    font-size: 14px; font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    opacity: 0; pointer-events: none;
+    transition: all .3s ease;
+    z-index: 9998;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ---------- Tip card ---------- */
+  .tip {
+    background: linear-gradient(135deg, #eef2ff, #fdf2f8);
+    border: 1px solid #e0e7ff;
+    padding: 14px 18px; border-radius: var(--r-md);
+    font-size: 13.5px; color: var(--ink-soft);
+    margin-top: 16px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .tip .tip-ico { font-size: 18px; flex-shrink: 0; }
+  .tip strong { color: var(--ink); }
+
+  footer.app {
+    text-align: center;
+    color: rgba(255,255,255,.5);
+    font-size: 12px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+
+<div class="wrap">
+
+  <!-- Header -->
+  <header class="app">
+    <div class="badge">★ Phrasal Verbs · Practice Pack</div>
+    <h1>Phrasal Verbs with <em style="font-style:normal;color:#fbcfe8">"on"</em></h1>
+    <p class="sub">Six common phrasal verbs built on the particle <b>on</b>. Flip cards, take quizzes, match meanings, train your memory, and type the answers. — Шесть фразовых глаголов с частицей <b>on</b>.</p>
+    <div class="pv-list">
+      <span>hold on</span>
+      <span>get on with</span>
+      <span>catch on</span>
+      <span>look on</span>
+      <span>pass on</span>
+      <span>carry on</span>
+    </div>
+    <div class="progress-shell"><div class="progress-fill" id="globalProgress"></div></div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs" role="tablist">
+    <button data-tab="learn" class="active">📚 Learn</button>
+    <button data-tab="quiz">📝 Quiz</button>
+    <button data-tab="match">🔗 Match</button>
+    <button data-tab="memory">🧠 Memory</button>
+    <button data-tab="test">⌨️ Test</button>
+  </nav>
+
+  <!-- ===================== LEARN ===================== -->
+  <section class="panel" id="panel-learn">
+    <h2><span class="num">1</span>Flashcards</h2>
+    <p class="lead">Click any card to flip it and reveal the meaning, Chinese gloss and an example sentence. Mark each one as learned when you've got it.</p>
+
+    <div class="learn-bar">
+      <span>Learned: <strong id="learnedCount">0</strong> / 6</span>
+      <button class="btn btn-ghost btn-sm" id="resetLearn">Reset</button>
+    </div>
+
+    <div class="flash-grid" id="flashGrid"></div>
+
+    <div class="tip">
+      <span class="tip-ico">💡</span>
+      <div><strong>Tip:</strong> All six verbs use the same particle <em>on</em>. Notice how the verb before <em>on</em> completely changes the meaning — there's no logic you can guess, so memorize each one with its example sentence.</div>
+    </div>
+  </section>
+
+  <!-- ===================== QUIZ ===================== -->
+  <section class="panel hidden" id="panel-quiz">
+    <h2><span class="num">2</span>Multiple-choice Quiz</h2>
+    <p class="lead">Choose the correct phrasal verb to complete each sentence. There are 6 questions, drawn from the original exercise.</p>
+
+    <div class="quiz-stage" id="quizStage"></div>
+  </section>
+
+  <!-- ===================== MATCH ===================== -->
+  <section class="panel hidden" id="panel-match">
+    <h2><span class="num">3</span>Match: Verb ⇄ Meaning</h2>
+    <p class="lead">Click a verb on the left, then click its meaning on the right. Match all six pairs as fast as you can.</p>
+
+    <div class="match-stats">
+      <span>Matched: <b id="matchDone">0</b>/6</span>
+      <span>Attempts: <b id="matchAttempts">0</b></span>
+      <span>Time: <b id="matchTime">0.0s</b></span>
+    </div>
+
+    <div class="match-board" id="matchBoard">
+      <div class="match-col">
+        <h4>Phrasal verb</h4>
+        <div class="match-list" id="matchVerbs"></div>
+      </div>
+      <div class="match-col">
+        <h4>Meaning</h4>
+        <div class="match-list" id="matchMeanings"></div>
+      </div>
+    </div>
+
+    <div class="test-foot">
+      <button class="btn btn-ghost btn-sm" id="resetMatch">Shuffle & Restart</button>
+      <span class="test-feedback" id="matchFeedback"></span>
+    </div>
+  </section>
+
+  <!-- ===================== MEMORY ===================== -->
+  <section class="panel hidden" id="panel-memory">
+    <h2><span class="num">4</span>Memory Game</h2>
+    <p class="lead">All 12 cards are face down. Flip two at a time and try to match each phrasal verb with its meaning.</p>
+
+    <div class="mem-stats">
+      <span>Moves: <b id="memMoves">0</b></span>
+      <span>Pairs: <b id="memPairs">0</b>/6</span>
+      <span>Time: <b id="memTime">0.0s</b></span>
+    </div>
+
+    <div class="mem-grid" id="memGrid"></div>
+
+    <div class="test-foot">
+      <button class="btn btn-ghost btn-sm" id="resetMem">Shuffle & Restart</button>
+      <span class="test-feedback" id="memFeedback"></span>
+    </div>
+  </section>
+
+  <!-- ===================== TEST ===================== -->
+  <section class="panel hidden" id="panel-test">
+    <h2><span class="num">5</span>Typing Test</h2>
+    <p class="lead">Type the correct phrasal verb for each sentence. Spelling counts, but you can try again. Press <kbd>Enter</kbd> to check.</p>
+
+    <div class="quiz-stage" id="testStage"></div>
+  </section>
+
+  <footer class="app">
+    Made for memorizing phrasal verbs · Progress saved locally in your browser
+  </footer>
+</div>
+
+<script>
+/* =====================================================================
+   DATA — six phrasal verbs built on the particle "on"
+   ===================================================================== */
+const DATA = [
+  { id: "hold_on",
+    verb: "hold on",
+    meaning: "wait",
+    ru: "подождать",
+    icon: "✋",
+    sentence: "The check-in clerk asked Rob to ___ for a moment while she checked the system.",
+    ruHint: "Регистратор попросила Роба немного подождать",
+    answer: "hold on"
+  },
+  { id: "get_on_with",
+    verb: "get on (well) with",
+    meaning: "have a good relationship with",
+    ru: "ладить с (кем-то)",
+    icon: "🤝",
+    sentence: "Sean ___ well with his neighbors — they often have dinner together.",
+    ruHint: "Шон хорошо ладит со своими соседями",
+    answer: "gets on"
+  },
+  { id: "catch_on",
+    verb: "catch on",
+    meaning: "become popular",
+    ru: "стать популярным",
+    icon: "🔥",
+    sentence: "Do you think freeganism will ever ___ in big cities?",
+    ruHint: "Станет ли фриганство популярным в больших городах?",
+    answer: "catch on"
+  },
+  { id: "look_on",
+    verb: "look on",
+    meaning: "watch without taking action",
+    ru: "наблюдать со стороны",
+    icon: "👀",
+    sentence: "The security guard ___ as the protesters filled the square.",
+    ruHint: "Охранник наблюдал за происходящим со стороны",
+    answer: "looked on"
+  },
+  { id: "pass_on",
+    verb: "pass on",
+    meaning: "give something to someone else",
+    ru: "передать кому-то ещё",
+    icon: "🎁",
+    sentence: "I've grown out of these jackets — I'll ___ them ___ to my younger cousin.",
+    ruHint: "Отдать старые вещи другому человеку",
+    answer: "pass on"
+  },
+  { id: "carry_on",
+    verb: "carry on",
+    meaning: "continue",
+    ru: "продолжать(ся)",
+    icon: "🏃",
+    sentence: "Despite modern changes, the Mongolian nomadic lifestyle ___ today.",
+    ruHint: "Монгольский кочевой образ жизни продолжается и сегодня",
+    answer: "carries on"
+  }
+];
+
+/* =====================================================================
+   STATE & PERSISTENCE
+   ===================================================================== */
+const LS_KEY = "pv_on_practice_v1";
+let state = JSON.parse(localStorage.getItem(LS_KEY) || "{}");
+if (!state.learned) state.learned = {};
+if (!state.scores) state.scores = {};
+
+function saveState() { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+/* =====================================================================
+   TAB NAVIGATION
+   ===================================================================== */
+const tabs = document.querySelectorAll("nav.tabs button");
+const panels = {
+  learn: document.getElementById("panel-learn"),
+  quiz: document.getElementById("panel-quiz"),
+  match: document.getElementById("panel-match"),
+  memory: document.getElementById("panel-memory"),
+  test: document.getElementById("panel-test"),
+};
+tabs.forEach(btn => btn.addEventListener("click", () => {
+  tabs.forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  Object.values(panels).forEach(p => p.classList.add("hidden"));
+  panels[btn.dataset.tab].classList.remove("hidden");
+  // re-trigger entry animation
+  panels[btn.dataset.tab].style.animation = "none";
+  void panels[btn.dataset.tab].offsetWidth;
+  panels[btn.dataset.tab].style.animation = "";
+}));
+
+/* =====================================================================
+   GLOBAL PROGRESS BAR
+   ===================================================================== */
+function updateProgress() {
+  const totalLearned = Object.values(state.learned).filter(Boolean).length;
+  const pct = Math.round((totalLearned / DATA.length) * 100);
+  document.getElementById("globalProgress").style.width = pct + "%";
+}
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+const toastEl = document.getElementById("toast");
+let toastT;
+function toast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add("show");
+  clearTimeout(toastT);
+  toastT = setTimeout(() => toastEl.classList.remove("show"), 2200);
+}
+
+/* =====================================================================
+   CONFETTI
+   ===================================================================== */
+const cfCanvas = document.getElementById("confetti");
+const cfCtx = cfCanvas.getContext("2d");
+let cfParticles = [];
+function sizeCanvas() { cfCanvas.width = innerWidth; cfCanvas.height = innerHeight; }
+sizeCanvas();
+addEventListener("resize", sizeCanvas);
+
+function fireConfetti(n = 120) {
+  const colors = ["#6366f1","#8b5cf6","#ec4899","#f59e0b","#10b981","#22d3ee"];
+  for (let i = 0; i < n; i++) {
+    cfParticles.push({
+      x: innerWidth/2 + (Math.random()-.5) * 200,
+      y: innerHeight/2,
+      vx: (Math.random()-.5) * 12,
+      vy: Math.random() * -14 - 4,
+      g: 0.35,
+      size: Math.random() * 8 + 4,
+      color: colors[(Math.random()*colors.length)|0],
+      rot: Math.random() * Math.PI * 2,
+      vrot: (Math.random()-.5) * 0.3,
+      life: 0,
+      maxLife: 120 + Math.random() * 60
+    });
+  }
+  if (!cfRunning) cfLoop();
+}
+let cfRunning = false;
+function cfLoop() {
+  cfRunning = true;
+  cfCtx.clearRect(0, 0, cfCanvas.width, cfCanvas.height);
+  cfParticles = cfParticles.filter(p => p.life < p.maxLife);
+  cfParticles.forEach(p => {
+    p.life++;
+    p.vy += p.g;
+    p.x += p.vx; p.y += p.vy;
+    p.rot += p.vrot;
+    cfCtx.save();
+    cfCtx.translate(p.x, p.y);
+    cfCtx.rotate(p.rot);
+    cfCtx.fillStyle = p.color;
+    cfCtx.fillRect(-p.size/2, -p.size/2, p.size, p.size * .6);
+    cfCtx.restore();
+  });
+  if (cfParticles.length) requestAnimationFrame(cfLoop);
+  else { cfCtx.clearRect(0, 0, cfCanvas.width, cfCanvas.height); cfRunning = false; }
+}
+
+/* =====================================================================
+   LEARN — Flashcards
+   ===================================================================== */
+const flashGrid = document.getElementById("flashGrid");
+const learnedCountEl = document.getElementById("learnedCount");
+
+function renderFlash() {
+  flashGrid.innerHTML = "";
+  DATA.forEach(d => {
+    const card = document.createElement("div");
+    card.className = "flash" + (state.learned[d.id] ? " learned" : "");
+    card.innerHTML = `
+      <div class="flash-inner">
+        <div class="flash-face flash-front">
+          <div class="icon">${d.icon}</div>
+          <div class="verb">${d.verb}</div>
+          <div class="hint">click to flip</div>
+        </div>
+        <div class="flash-face flash-back">
+          <div class="meaning">${d.meaning}</div>
+          <div class="ru">${d.ru}</div>
+          <div class="ex">"${d.sentence.replace(/___/g, "…")}"</div>
+          <div class="ex-ru">${d.ruHint}</div>
+        </div>
+      </div>`;
+    card.addEventListener("click", () => {
+      card.classList.toggle("flipped");
+      if (card.classList.contains("flipped") && !state.learned[d.id]) {
+        // Mark as learned after viewing back
+        state.learned[d.id] = true;
+        card.classList.add("learned");
+        saveState();
+        updateLearned();
+        updateProgress();
+        toast(`"${d.verb}" marked as learned ✓`);
+      }
+    });
+    flashGrid.appendChild(card);
+  });
+  updateLearned();
+}
+function updateLearned() {
+  const n = Object.values(state.learned).filter(Boolean).length;
+  learnedCountEl.textContent = n;
+}
+document.getElementById("resetLearn").addEventListener("click", () => {
+  state.learned = {};
+  saveState();
+  renderFlash();
+  updateProgress();
+  toast("Flashcards reset");
+});
+
+/* =====================================================================
+   QUIZ — Multiple choice
+   ===================================================================== */
+const quizStage = document.getElementById("quizStage");
+let quizIdx = 0, quizScore = 0, quizOrder = [], quizAnswered = false;
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  quizIdx = 0; quizScore = 0;
+  quizOrder = shuffle(DATA);
+  renderQuizQuestion();
+}
+
+function renderQuizQuestion() {
+  quizAnswered = false;
+  const d = quizOrder[quizIdx];
+  // Build 4 options: the correct verb + 3 distractors
+  const distractors = shuffle(DATA.filter(x => x.id !== d.id)).slice(0, 3);
+  const opts = shuffle([d, ...distractors]);
+  const letters = ["A","B","C","D"];
+
+  quizStage.innerHTML = `
+    <div class="quiz-meta">
+      <span>Question ${quizIdx + 1} / ${quizOrder.length}</span>
+      <span class="score">Score: ${quizScore}/${quizIdx}</span>
+    </div>
+    <div class="quiz-q">
+      ${d.sentence.replace("___", `<span class="blank" id="quizBlank">_____</span>`)}
+      <span class="ru-hint">Подсказка: ${d.ruHint}</span>
+    </div>
+    <div class="quiz-opts">
+      ${opts.map((o, i) => `
+        <button class="quiz-opt" data-correct="${o.id === d.id}">
+          <span class="key">${letters[i]}</span>
+          <span>${o.verb}</span>
+        </button>`).join("")}
+    </div>
+    <div class="quiz-foot">
+      <span class="test-feedback" id="quizFeedback"></span>
+      <button class="btn btn-primary" id="quizNext" disabled style="opacity:.4">Next →</button>
+    </div>
+  `;
+
+  quizStage.querySelectorAll(".quiz-opt").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (quizAnswered) return;
+      quizAnswered = true;
+      const correct = btn.dataset.correct === "true";
+      const blank = document.getElementById("quizBlank");
+      blank.classList.add("filled");
+      const chosen = btn.querySelector("span:last-child").textContent;
+      blank.textContent = chosen.split(" ")[0] + (chosen.includes(" ") ? " " + chosen.split(" ")[1] : "");
+
+      if (correct) {
+        btn.classList.add("correct");
+        quizScore++;
+        document.getElementById("quizFeedback").className = "test-feedback ok";
+        document.getElementById("quizFeedback").textContent = "✓ Correct! " + d.meaning + " — " + d.ru;
+      } else {
+        btn.classList.add("wrong");
+        // Highlight the correct one
+        quizStage.querySelectorAll(".quiz-opt").forEach(b => {
+          if (b.dataset.correct === "true") b.classList.add("correct");
+        });
+        document.getElementById("quizFeedback").className = "test-feedback bad";
+        document.getElementById("quizFeedback").innerHTML = `✗ Not quite. <span class="reveal">Correct: <b>${d.verb}</b> — ${d.meaning} (${d.ru})</span>`;
+      }
+
+      const next = document.getElementById("quizNext");
+      next.disabled = false; next.style.opacity = "1";
+      next.textContent = quizIdx + 1 === quizOrder.length ? "See results →" : "Next →";
+      next.onclick = () => {
+        quizIdx++;
+        if (quizIdx >= quizOrder.length) showQuizResult();
+        else renderQuizQuestion();
+      };
+    });
+  });
+}
+
+function showQuizResult() {
+  const pct = Math.round((quizScore / quizOrder.length) * 100);
+  const prev = state.scores.quiz || 0;
+  if (pct > prev) { state.scores.quiz = pct; saveState(); }
+  const msg = pct === 100 ? "Perfect! 🏆" : pct >= 80 ? "Great job! 🌟" : pct >= 60 ? "Good effort 💪" : "Keep practicing 📚";
+  quizStage.innerHTML = `
+    <div class="result-card">
+      <div class="ring" style="--p:${pct}"><span>${pct}%</span></div>
+      <h3>${msg}</h3>
+      <p>You got <b>${quizScore}</b> out of <b>${quizOrder.length}</b> correct.${prev ? ` Best: ${prev}%` : ""}</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="quizRetry">Try again</button>
+        <button class="btn btn-ghost" data-tab="learn">Back to flashcards</button>
+      </div>
+    </div>
+  `;
+  if (pct >= 80) fireConfetti(150);
+  document.getElementById("quizRetry").onclick = startQuiz;
+  quizStage.querySelector('[data-tab="learn"]').onclick = () => document.querySelector('nav.tabs button[data-tab="learn"]').click();
+}
+
+/* =====================================================================
+   MATCH — verb ⇄ meaning
+   ===================================================================== */
+let mSelVerb = null, mDone = 0, mAttempts = 0, mStartT = 0, mTimerInt = null;
+const matchVerbsEl = document.getElementById("matchVerbs");
+const matchMeaningsEl = document.getElementById("matchMeanings");
+
+function startMatch() {
+  mDone = 0; mAttempts = 0; mSelVerb = null;
+  mStartT = Date.now();
+  if (mTimerInt) clearInterval(mTimerInt);
+  mTimerInt = setInterval(() => {
+    document.getElementById("matchTime").textContent = ((Date.now() - mStartT) / 1000).toFixed(1) + "s";
+  }, 100);
+  document.getElementById("matchDone").textContent = "0";
+  document.getElementById("matchAttempts").textContent = "0";
+  document.getElementById("matchFeedback").textContent = "";
+
+  const shuffledVerbs = shuffle(DATA);
+  const shuffledMeanings = shuffle(DATA);
+
+  matchVerbsEl.innerHTML = "";
+  matchMeaningsEl.innerHTML = "";
+
+  shuffledVerbs.forEach(d => {
+    const el = document.createElement("div");
+    el.className = "match-item";
+    el.dataset.id = d.id; el.dataset.kind = "verb";
+    el.textContent = d.verb;
+    el.onclick = () => clickMatchItem(el);
+    matchVerbsEl.appendChild(el);
+  });
+  shuffledMeanings.forEach(d => {
+    const el = document.createElement("div");
+    el.className = "match-item";
+    el.dataset.id = d.id; el.dataset.kind = "meaning";
+    el.textContent = d.meaning;
+    el.onclick = () => clickMatchItem(el);
+    matchMeaningsEl.appendChild(el);
+  });
+}
+
+function clickMatchItem(el) {
+  if (el.classList.contains("matched")) return;
+  // Same column click — switch selection
+  if (mSelVerb && mSelVerb.dataset.kind === el.dataset.kind) {
+    mSelVerb.classList.remove("selected");
+    mSelVerb = el.dataset.kind === "verb" ? el : null;
+    if (mSelVerb) mSelVerb.classList.add("selected");
+    else if (el.dataset.kind === "meaning" && mSelVerb) {}
+    return;
+  }
+  if (el.dataset.kind === "verb") {
+    if (mSelVerb) mSelVerb.classList.remove("selected");
+    mSelVerb = el;
+    el.classList.add("selected");
+    return;
+  }
+  // meaning clicked — need a verb selected
+  if (!mSelVerb) {
+    toast("Pick a phrasal verb first");
+    return;
+  }
+  mAttempts++;
+  document.getElementById("matchAttempts").textContent = mAttempts;
+  if (mSelVerb.dataset.id === el.dataset.id) {
+    mSelVerb.classList.add("matched"); mSelVerb.classList.remove("selected");
+    el.classList.add("matched");
+    mDone++;
+    document.getElementById("matchDone").textContent = mDone;
+    mSelVerb = null;
+    if (mDone === DATA.length) {
+      clearInterval(mTimerInt);
+      const t = ((Date.now() - mStartT) / 1000).toFixed(1);
+      document.getElementById("matchFeedback").className = "test-feedback ok";
+      document.getElementById("matchFeedback").textContent = `🎉 All matched in ${t}s with ${mAttempts} attempts!`;
+      fireConfetti(150);
+    }
+  } else {
+    // wrong
+    mSelVerb.classList.add("shake");
+    el.classList.add("shake");
+    setTimeout(() => { mSelVerb && mSelVerb.classList.remove("shake"); el.classList.remove("shake"); }, 400);
+    mSelVerb.classList.remove("selected");
+    mSelVerb = null;
+  }
+}
+
+document.getElementById("resetMatch").addEventListener("click", startMatch);
+
+/* =====================================================================
+   MEMORY — concentration grid
+   ===================================================================== */
+let memFirst = null, memSecond = null, memLock = false;
+let memMoves = 0, memPairs = 0, memStart = 0, memTimerInt = null;
+const memGridEl = document.getElementById("memGrid");
+
+function startMemory() {
+  memMoves = 0; memPairs = 0; memFirst = null; memSecond = null; memLock = false;
+  memStart = Date.now();
+  if (memTimerInt) clearInterval(memTimerInt);
+  memTimerInt = setInterval(() => {
+    document.getElementById("memTime").textContent = ((Date.now() - memStart) / 1000).toFixed(1) + "s";
+  }, 100);
+  document.getElementById("memMoves").textContent = "0";
+  document.getElementById("memPairs").textContent = "0";
+  document.getElementById("memFeedback").textContent = "";
+
+  // Build 12 cards: 6 verbs + 6 meanings, paired by id
+  const cards = [];
+  DATA.forEach(d => {
+    cards.push({ id: d.id, kind: "verb", text: d.verb });
+    cards.push({ id: d.id, kind: "meaning", text: d.meaning });
+  });
+  const shuffled = shuffle(cards);
+
+  memGridEl.innerHTML = "";
+  shuffled.forEach((c, i) => {
+    const card = document.createElement("div");
+    card.className = "mem-card";
+    card.dataset.id = c.id; card.dataset.idx = i;
+    card.innerHTML = `
+      <div class="mem-inner">
+        <div class="mem-face mem-back">?</div>
+        <div class="mem-face mem-front">${c.text}</div>
+      </div>`;
+    card.onclick = () => flipMem(card);
+    memGridEl.appendChild(card);
+  });
+}
+
+function flipMem(card) {
+  if (memLock || card.classList.contains("flipped") || card.classList.contains("matched")) return;
+  card.classList.add("flipped");
+  if (!memFirst) { memFirst = card; return; }
+  memSecond = card;
+  memMoves++;
+  document.getElementById("memMoves").textContent = memMoves;
+
+  if (memFirst.dataset.id === memSecond.dataset.id) {
+    memFirst.classList.add("matched");
+    memSecond.classList.add("matched");
+    memPairs++;
+    document.getElementById("memPairs").textContent = memPairs;
+    memFirst = memSecond = null;
+    if (memPairs === DATA.length) {
+      clearInterval(memTimerInt);
+      const t = ((Date.now() - memStart) / 1000).toFixed(1);
+      document.getElementById("memFeedback").className = "test-feedback ok";
+      document.getElementById("memFeedback").textContent = `🎉 Solved in ${memMoves} moves and ${t}s!`;
+      fireConfetti(180);
+    }
+  } else {
+    memLock = true;
+    setTimeout(() => {
+      memFirst.classList.remove("flipped");
+      memSecond.classList.remove("flipped");
+      memFirst = memSecond = null;
+      memLock = false;
+    }, 900);
+  }
+}
+
+document.getElementById("resetMem").addEventListener("click", startMemory);
+
+/* =====================================================================
+   TEST — typing
+   ===================================================================== */
+const testStage = document.getElementById("testStage");
+let testIdx = 0, testScore = 0, testOrder = [], testTried = false;
+
+function startTest() {
+  testIdx = 0; testScore = 0;
+  testOrder = shuffle(DATA);
+  renderTestQuestion();
+}
+
+function normalize(s) {
+  return s.trim().toLowerCase()
+    .replace(/\(.*?\)/g, "")
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, " ").trim();
+}
+
+function renderTestQuestion() {
+  testTried = false;
+  const d = testOrder[testIdx];
+  testStage.innerHTML = `
+    <div class="quiz-meta">
+      <span>Sentence ${testIdx + 1} / ${testOrder.length}</span>
+      <span class="score">Correct: ${testScore}/${testIdx}</span>
+    </div>
+    <div class="test-q">
+      ${d.sentence.replace(/___/g, `<span class="blank-line">_________</span>`)}
+      <span class="ru-hint">Подсказка: ${d.ruHint}</span>
+    </div>
+    <input type="text" class="test-input" id="testInput" placeholder="Type the phrasal verb here…" autocomplete="off" spellcheck="false">
+    <div class="test-feedback" id="testFeedback"></div>
+    <div class="test-foot">
+      <button class="btn btn-ghost btn-sm" id="testSkip">Skip →</button>
+      <button class="btn btn-primary" id="testNext" disabled style="opacity:.4">Next →</button>
+    </div>
+  `;
+  const input = document.getElementById("testInput");
+  input.focus();
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      checkTest();
+    }
+  });
+  document.getElementById("testSkip").onclick = () => {
+    document.getElementById("testFeedback").className = "test-feedback bad";
+    document.getElementById("testFeedback").innerHTML = `Skipped. <span class="reveal">Answer: <b>${d.answer}</b> — ${d.meaning} (${d.ru})</span>`;
+    input.disabled = true;
+    unlockTestNext();
+  };
+}
+
+function checkTest() {
+  const d = testOrder[testIdx];
+  const input = document.getElementById("testInput");
+  const val = input.value;
+  const fb = document.getElementById("testFeedback");
+  const correct = normalize(val) === normalize(d.answer) ||
+                  normalize(val) === normalize(d.verb) ||
+                  normalize(val).includes(normalize(d.answer)) && normalize(d.answer).length >= 5;
+
+  if (correct && !testTried) {
+    input.classList.add("ok");
+    fb.className = "test-feedback ok";
+    fb.textContent = `✓ Correct! "${d.answer}" — ${d.meaning} (${d.ru})`;
+    testScore++;
+    unlockTestNext();
+  } else if (correct && testTried) {
+    input.classList.remove("bad"); input.classList.add("ok");
+    fb.className = "test-feedback ok";
+    fb.textContent = `✓ Got it on retry.`;
+    unlockTestNext();
+  } else {
+    input.classList.add("bad");
+    testTried = true;
+    if (val.trim() === "") {
+      fb.className = "test-feedback bad";
+      fb.textContent = "Type something, then press Enter.";
+    } else {
+      fb.className = "test-feedback bad";
+      fb.innerHTML = `✗ Not quite. Try again, or skip. <span class="reveal">Hint: starts with "${d.answer[0]}_", ${d.answer.length} letters in the first word.</span>`;
+    }
+    // clear bad styling on next input
+    input.oninput = () => input.classList.remove("bad");
+  }
+}
+
+function unlockTestNext() {
+  const next = document.getElementById("testNext");
+  next.disabled = false; next.style.opacity = "1";
+  next.textContent = testIdx + 1 === testOrder.length ? "See results →" : "Next →";
+  next.onclick = () => {
+    testIdx++;
+    if (testIdx >= testOrder.length) showTestResult();
+    else renderTestQuestion();
+  };
+}
+
+function showTestResult() {
+  const pct = Math.round((testScore / testOrder.length) * 100);
+  const prev = state.scores.test || 0;
+  if (pct > prev) { state.scores.test = pct; saveState(); }
+  const msg = pct === 100 ? "Flawless! 🏆" : pct >= 80 ? "Brilliant! 🌟" : pct >= 60 ? "Solid work 💪" : "Keep at it 📚";
+  testStage.innerHTML = `
+    <div class="result-card">
+      <div class="ring" style="--p:${pct}"><span>${pct}%</span></div>
+      <h3>${msg}</h3>
+      <p>You typed <b>${testScore}</b> out of <b>${testOrder.length}</b> correctly on the first try.${prev ? ` Best: ${prev}%` : ""}</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" id="testRetry">Try again</button>
+        <button class="btn btn-ghost" data-tab="learn">Back to flashcards</button>
+      </div>
+    </div>
+  `;
+  if (pct >= 80) fireConfetti(150);
+  document.getElementById("testRetry").onclick = startTest;
+  testStage.querySelector('[data-tab="learn"]').onclick = () => document.querySelector('nav.tabs button[data-tab="learn"]').click();
+}
+
+/* =====================================================================
+   INIT
+   ===================================================================== */
+renderFlash();
+updateProgress();
+startQuiz();
+startMatch();
+startMemory();
+startTest();
+</script>
+</body>
+</html>
